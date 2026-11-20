@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Offline — шахматы без интернета</title>
+    <meta name="description" content="Офлайн-шахматы для Windows: бот 9 уровней, 3440 задач, анализ партий как на Chess.com.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e8e8e8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        h1 {
+            font-size: 48px;
+            background: linear-gradient(90deg, #d4af37, #f4d03f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #a0a0b0;
+            margin-bottom: 8px;
+        }
+        .tagline {
+            font-size: 16px;
+            color: #707080;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .feature:hover {
+            transform: translateY(-4px);
+            border-color: #d4af37;
+        }
+        .feature h3 {
+            color: #d4af37;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        .feature p {
+            color: #b0b0c0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .download-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 20px 60px;
+            background: linear-gradient(90deg, #d4af37, #f4d03f);
+            color: #1a1a2e;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+        }
+        .download-info {
+            margin-top: 16px;
+            color: #707080;
+            font-size: 14px;
+        }
+        .requirements {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 40px;
+        }
+        .requirements h3 {
+            color: #d4af37;
+            margin-bottom: 12px;
+        }
+        .requirements ul {
+            list-style: none;
+            color: #b0b0c0;
+        }
+        .requirements li {
+            padding: 6px 0;
+            font-size: 14px;
+        }
+        .requirements li::before {
+            content: "✓ ";
+            color: #4ade80;
+        }
+        .warning {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 24px;
+            color: #fbbf24;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #505060;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        footer a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 32px; }
+            .subtitle { font-size: 16px; }
+            .download-btn { padding: 16px 40px; font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>♟️ Chess Offline</h1>
+            <p class="subtitle">Шахматы без интернета для Windows</p>
+            <p class="tagline">Бот 9 уровней · 3440 задач · Анализ партий</p>
+        </header>
+
+        <section class="features">
+            <div class="feature">
+                <h3>🤖 Бот 9 уровней</h3>
+                <p>От новичка до гроссмейстера. Elo 1320–2000, реалистичная игра с настраиваемой сложностью.</p>
+            </div>
+            <div class="feature">
+                <h3>🧩 3440 задач</h3>
+                <p>Маты в 1–6 ходов. Фильтр по сложности, подсказки, сохранение прогресса.</p>
+            </div>
+            <div class="feature">
+                <h3>📊 Анализ партий</h3>
+                <p>Классификация ходов как на Chess.com: Brilliant, Best, Blunder. Объяснение ошибок.</p>
+            </div>
+            <div class="feature">
+                <h3>👥 Игра вдвоём</h3>
+                <p>Режим PvP на одном компьютере. Идеально для игры с друзьями.</p>
+            </div>
+            <div class="feature">
+                <h3>🌍 Русский и English</h3>
+                <p>Полная локализация. Переключение языка на лету.</p>
+            </div>
+            <div class="feature">
+                <h3>💾 Всё сохраняется</h3>
+                <p>Партии, статистика, прогресс задач. Работает без интернета и аккаунтов.</p>
+            </div>
+        </section>
+
+        <section class="download-section">
+            <!-- ЗАМЕНИТЕ ССЫЛКУ НА ВАШУ (см. Шаг 4) -->
+            <a href="https://github.com/ВАШ_ЛОГИН/chess-offline-landing/releases/latest/download/ChessOffline.exe"
+               class="download-btn">
+                ⬇️ Скачать для Windows
+            </a>
+            <p class="download-info">Windows 10 / 11 · ~250 МБ · Без установки</p>
+        </section>
+
+        <section class="requirements">
+            <h3>Системные требования</h3>
+            <ul>
+                <li>Windows 10 или 11 (64-bit)</li>
+                <li>Свободное место: ~500 МБ</li>
+                <li>Оперативная память: 2 ГБ+</li>
+                <li>Интернет не требуется</li>
+            </ul>
+        </section>
+
+        <div class="warning">
+            <strong>⚠️ Windows SmartScreen</strong><br>
+            При первом запуске Windows может показать предупреждение
+            «Windows protected your PC». Нажмите <strong>More info → Run anyway</strong>.
+            Это нормально — файл не подписан цифровым сертификатом.
+        </div>
+    </div>
+
+    <footer>
+        <p>Chess Offline · Сделано с ♟️ на Python</p>
+        <p>© 2026 · <a href="https://github.com/ВАШ_ЛОГИН/chess-offline-landing">GitHub</a></p>
+    </footer>
+</body>
+</html>
